@@ -1,5 +1,6 @@
 import { revalidateTag } from "next/cache";
-import { addProductToDatabase } from "./actions/serverActions";
+import { addProductToDatabase } from "../actions/serverActions";
+import AddProductButton from "@/components/AddProductButton";
 
 export default async function Home() {
   const results = await fetch(
@@ -17,6 +18,7 @@ export default async function Home() {
   return (
     <main className="">
       <h1 className="text-3xl font-bold text-center">Products Warehouse</h1>
+      <AddProductButton />
 
       <form
         action={addProductToDatabase}
